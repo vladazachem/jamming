@@ -1,0 +1,28 @@
+.mainframe {
+    text-align: center;
+    margin-top: 50px;
+}
+  
+.title {
+    margin-bottom: 20px;
+}
+  
+.logos {
+    width: 50px;
+    margin: 10px;
+}
+
+.loginButton {
+    padding: 10px 20px;
+    background-color: #1DB954;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+  
+.loginButton:hover {
+    background-color: #1ed760;
+}  

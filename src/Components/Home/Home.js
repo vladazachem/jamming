@@ -6,7 +6,7 @@ const Home = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/"); // Redirect to the welcome page after logout
+    navigate("/");
   };
 
   return (
