@@ -47,7 +47,7 @@ const Welcome = () => {
 
   return (
      <div className={styles.mainframe}>
-       <div className="title">
+       <div className={styles.title}>
          <h1>Welcome to Jamm</h1>
          <button className={styles.loginButton} onClick={handleLogin}>Log in</button>
        </div>
