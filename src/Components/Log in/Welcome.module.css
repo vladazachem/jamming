@@ -8,52 +8,51 @@ html,
     font-family: Arial, sans-serif;
 }
 
-html {
-    background-image: url('./login_bg.svg');
-    background-size: cover; /* Ensures the image covers the entire background */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat;
-}
-
-body {
+.mainframe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    z-index: 0;
     margin: 0px 100px;
 }
 
-.mainframe {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-}
-
 .title {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .logos {
-  width: 50px;
-  margin-right: 10px;
+    width: 50px;
+    margin-right: 10px;
 }
 
 .loginButton {
-  padding: 12px 24px;
-  background-color: #1DB954;
-  border: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 12px 24px;
+    background-color: #1DB954;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .loginButton:hover {
-  background-color: #1ed760;
-  transform: scale(1.05);
+    background-color: #1ed760;
+    transform: scale(1.05);
 }
 
 .loginButton:focus {
-  outline: none;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.bg_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: -1;
 }
 
 @media (max-width: 800px) {
