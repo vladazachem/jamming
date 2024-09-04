@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+
 import styles from './Header.module.css';
+import '../../style.css';
 
 import logo from './jamm_logo.svg';
 

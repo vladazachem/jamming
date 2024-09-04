@@ -1,0 +1,60 @@
+@import url(https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ecf?family=Helvetica+Neue+ME);
+@import url(https://db.onlinewebfonts.com/c/dddd46d57e5f07cf51893797de0c0d7f?family=Helvetica+Neue+ME+Bold);
+
+:root {
+    --primary01-color: #1ED760;
+    --primary02-color: #f7e32c;
+
+    --secondary01-color: #000000;
+    --secondary02-color: #191414;
+    --secondary03-color: #ffffff;
+
+    --neutral01-color: #b2b2b2;
+    --neutral02-color: #777777;
+    --neutral03-color: #535353;
+
+    --font-size-h1: 80px;
+    --font-size-h2: 32px;
+    --font-size-h3: 20px;
+    --font-size-h4: 14px;
+    --font-size-h5: 12px;
+    --font-size-body01: 18px;
+    --font-size-body02: 13px;
+    --font-size-body03: 10px;
+
+    --font-weight-regular: "Helvetica Neue ME", sans-serif;
+    --font-weight-bold: "Helvetica Neue ME Bold", , sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-weight-bold);
+    font-weight: bold;
+}
+
+button {
+    font-family: var(--font-weight-bold);
+    font-weight: bold;
+    background-color: var(--primary01-color);
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.login_button {
+    padding: 30px 70px;
+    font-size: var(--font-size-h2);
+    font-family: var(--font-weight-bold);
+    font-weight: bold;
+    background-color: var(--primary01-color);
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.M_button {
+    padding: 15px 27px;
+    font-size: var(--font-size-h4);
+}
+
+.S_button {
+    padding: 10px 20px;
+    font-size: var(--font-size-h5);
+}

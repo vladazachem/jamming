@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from './Welcome.module.css';
+import '../../style.css';
+
 
 import spotify_logo from './spotify_logo.svg';
 import codecademy_logo from './codecademy_logo.svg';
-// import background from './login_bg.svg';
 
-const CLIENT_ID = "549b533061924e4c81509ccd9025d8a6"; // Replace with your Spotify Client ID
-const REDIRECT_URI = "http://localhost:3000/"; // Replace with your Redirect URI
+const CLIENT_ID = "549b533061924e4c81509ccd9025d8a6";
+const REDIRECT_URI = "http://localhost:3000/";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
 
@@ -51,7 +52,7 @@ const Welcome = () => {
      <div className={styles.wrap}>
        <div className={styles.title}>
          <h1>Welcome to Jamm</h1>
-         <button className={styles.loginButton} onClick={handleLogin}>Log in</button>
+         <button className="login_button" onClick={handleLogin}>Log in</button>
        </div>
        <div className={styles.logo_wrap}>
           <img className={styles.logos} src={spotify_logo} alt="Spotify logo"/>
