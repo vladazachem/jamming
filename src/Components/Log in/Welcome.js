@@ -5,7 +5,7 @@ import styles from './Welcome.module.css';
 
 import spotify_logo from './spotify_logo.svg';
 import codecademy_logo from './codecademy_logo.svg';
-import background from './login_bg.svg';
+// import background from './login_bg.svg';
 
 const CLIENT_ID = "549b533061924e4c81509ccd9025d8a6"; // Replace with your Spotify Client ID
 const REDIRECT_URI = "http://localhost:3000/"; // Replace with your Redirect URI
@@ -47,17 +47,19 @@ const Welcome = () => {
   };
 
   return (
-     <div className={styles.mainframe}>
+    <div className={styles.mainframe}>
+     <div className={styles.wrap}>
        <div className={styles.title}>
          <h1>Welcome to Jamm</h1>
          <button className={styles.loginButton} onClick={handleLogin}>Log in</button>
        </div>
-       <div>
-        <img className={styles.logos} src={spotify_logo} alt="Spotify logo"/>
-         <img className={styles.logos} src={codecademy_logo} alt="Codecademy logo"/>
+       <div className={styles.logo_wrap}>
+          <img className={styles.logos} src={spotify_logo} alt="Spotify logo"/>
+          <div className={styles.divider_line}></div>
+          <img className={styles.logos} src={codecademy_logo} alt="Codecademy logo"/>
+        </div>
       </div>
-      <img className={styles.bg_img} src={background} alt="" />
-   </div>
+    </div>
  );
 };
 
