@@ -1,5 +1,5 @@
 .main {
-    padding-block: 100px;
+    padding-block: 80px;
     display: flex;
     justify-content: center;
 }
@@ -7,19 +7,6 @@
 .wrap {
     display: flex;
     flex-direction: column;
-}
-
-.searchInput {
-    border: solid 2px var(--secondary01-color);
-    border-radius: 25px;
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-}
-
-.searchInput:hover {
-    border: solid 2px var(--primary02-color);
 }
 
 .search_btn {

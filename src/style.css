@@ -1,5 +1,4 @@
-@import url(https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ecf?family=Helvetica+Neue+ME);
-@import url(https://db.onlinewebfonts.com/c/dddd46d57e5f07cf51893797de0c0d7f?family=Helvetica+Neue+ME+Bold);
+@import url("https://use.typekit.net/ucm8usq.css");
 
 :root {
     --primary01-color: #1ED760;
@@ -23,19 +22,23 @@
     --font-size-body03: 10px;
     --font-size-inputs: 14px;
 
-    --font-weight-regular: "Helvetica Neue ME", sans-serif;
-    --font-weight-bold: "Helvetica Neue ME Bold", sans-serif;
+    --font-family: "liberation-sans", sans-serif;
+
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: var(--font-weight-bold);
-    font-weight: bold;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-bold);
     color: var(--secondary01-color);
 }
 
+/* BUTTONS */
+
 button {
-    font-family: var(--font-weight-bold);
-    font-weight: bold;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-bold);
     background-color: var(--primary01-color);
     width: fit-content;
     border-radius: 50px;
@@ -50,8 +53,8 @@ button:focus {
 .login_button {
     padding: 30px 70px;
     font-size: var(--font-size-h2);
-    font-family: var(--font-weight-bold);
-    font-weight: bold;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-bold);
     background-color: var(--primary01-color);
     width: fit-content;
     border-radius: 50px;
@@ -67,10 +70,27 @@ button:focus {
     font-size: var(--font-size-h4);
 }
 
-.input {
-    height: 23px;
-    border: none;
-    font-size: var(----font-size-inputs);
-    font-family: var(--font-weight-regular);
+/* INPUTS */
+
+
+.inputWrap {
+    border: solid 2px var(--secondary01-color);
+    border-radius: 25px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
+.inputWrap:hover {
+    border: solid 2px var(--primary02-color);
+}
+
+
+.input {
+    height: 25px;
+    border: none;
+    font-size: var(----font-size-inputs);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+}

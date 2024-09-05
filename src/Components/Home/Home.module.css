@@ -2,3 +2,9 @@
     padding-inline: 150px;
     display: block;
 }
+
+.card_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
