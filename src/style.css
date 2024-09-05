@@ -29,6 +29,7 @@
 h1, h2, h3, h4, h5 {
     font-family: var(--font-weight-bold);
     font-weight: bold;
+    color: var(--secondary01-color);
 }
 
 button {
@@ -37,6 +38,11 @@ button {
     background-color: var(--primary01-color);
     width: fit-content;
     border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--primary02-color);
 }
 
 .login_button {
@@ -51,7 +57,7 @@ button {
 
 .M_button {
     padding: 15px 27px;
-    font-size: var(--font-size-h4);
+    font-size: var(--font-size-h3);
 }
 
 .S_button {

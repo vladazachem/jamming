@@ -1,5 +1,4 @@
 header {
-    height: 100px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -14,6 +13,19 @@ header {
 
 .logo {
     width: 195px;
+    margin: 30px 0px;
+}
+
+.M_button {
+    margin: 30px 0px;
+    border: 3px solid var(--primary01-color);
+    border-color: var(--primary01-color);
+    background-color: var(--secondary03-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.M_button:hover {
+    border-color: var(--primary02-color);
 }
 
 .divider_line {

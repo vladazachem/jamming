@@ -18,7 +18,7 @@ const Header = () => {
     <header>
         <div className={styles.wrap}>
             <img className={styles.logo} src={logo} alt="Jamm logo" />
-            <button onClick={handleLogout}>Logout</button>
+            <button className={`M_button ${styles.M_button}`} onClick={handleLogout}>Logout</button>
         </div>
         <div className={styles.divider_line}></div>
     </header>
