@@ -21,9 +21,10 @@
     --font-size-body01: 18px;
     --font-size-body02: 13px;
     --font-size-body03: 10px;
+    --font-size-inputs: 14px;
 
     --font-weight-regular: "Helvetica Neue ME", sans-serif;
-    --font-weight-bold: "Helvetica Neue ME Bold", , sans-serif;
+    --font-weight-bold: "Helvetica Neue ME Bold", sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
@@ -41,7 +42,8 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+button:hover,
+button:focus {
     background-color: var(--primary02-color);
 }
 
@@ -62,5 +64,13 @@ button:hover {
 
 .S_button {
     padding: 10px 20px;
-    font-size: var(--font-size-h5);
+    font-size: var(--font-size-h4);
 }
+
+.input {
+    height: 23px;
+    border: none;
+    font-size: var(----font-size-inputs);
+    font-family: var(--font-weight-regular);
+}
+

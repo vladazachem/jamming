@@ -1,0 +1,43 @@
+.main {
+    padding-block: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchInput {
+    border: solid 2px var(--secondary01-color);
+    border-radius: 25px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.searchInput:hover {
+    border: solid 2px var(--primary02-color);
+}
+
+.search_btn {
+    background-color: var(--secondary03-color);
+}
+
+.input {
+    width: 300px;
+}
+
+.btns_section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-block: 25px;
+}
+
+.S_button {
+    margin: 0px 10px;
+    width: 80px;
+}
