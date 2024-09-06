@@ -31,6 +31,7 @@ h4 {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    flex-grow: 1;
 }
 
 ::-webkit-scrollbar {
@@ -38,8 +39,27 @@ h4 {
     background: transparent;
 }
 
+.inputSection {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-self: flex-end;
+    
+}
 
 .inputWrap {
+    background-color: var(--secondary03-color);
+}
+
+.btn_wrap {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+/* .inputWrap {
     background-color: var(--secondary03-color);
     margin-top: 20px;
 }
@@ -48,7 +68,8 @@ h4 {
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
-}
+    align-content: flex-end;
+} */
 
 .S_button {
     border: 2px solid var(--primary01-color);

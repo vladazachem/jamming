@@ -31,44 +31,14 @@ const Home = () => {
       id: 3
     },
     {
-      name: "Track Name 1",
-      artist: "Track Artist 1",
-      album: "Track Album 1",
-      id: 1
-    },
-    {
-      name: "Track Name 2",
-      artist: "Track Artist 2",
-      album: "Track Album 2",
-      id: 2
-    },
-    {
-      name: "Track Name 3",
-      artist: "Track Artist 3",
-      album: "Track Album 3",
-      id: 3
-    },
-    {
-      name: "Track Name 1",
-      artist: "Track Artist 1",
-      album: "Track Album 1",
-      id: 1
-    },
-    {
-      name: "Track Name 2",
-      artist: "Track Artist 2",
-      album: "Track Album 2",
-      id: 2
-    },
-    {
-      name: "Track Name 3",
-      artist: "Track Artist 3",
-      album: "Track Album 3",
-      id: 3
+      name: "Track Name 4",
+      artist: "Track Artist 4",
+      album: "Track Album 4",
+      id: 4
     }
   ])
 
-  const [playlistName, setPlaylistName] = useState();
+  const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([
     {
       name: "Track Playlist Name 1",
@@ -87,23 +57,16 @@ const Home = () => {
       artist: "Track Playlist Artist 3",
       album: "Track Playlist Album 3",
       id: 3
-    },
-    {
-      name: "Track Playlist Name 1",
-      artist: "Track Playlist Artist 1",
-      album: "Track Playlist Album 1",
-      id: 4
     }
   ]);
 
   const addTrack = (track) => {
     const existingTrack = playlistTracks.find((t) => t.id === track.id);
-    const newTrack = setPlaylistTracks.concat(track);
 
     if (existingTrack) {
       console.log('This track was already added');
     } else {
-      playlistTracks(newTrack);
+      setPlaylistTracks(prevTracks => [...prevTracks, track]);;
     }
   };
 
@@ -115,16 +78,16 @@ const Home = () => {
       <Header />
       <SearchBar />
       <div className={styles.card_container}>
-        <SearchResults 
-        userSearchResults={searchResults}
-         onAdd={addTrack}
-         isRemoval={false}
-         />
+        <SearchResults
+          userSearchResults={searchResults}
+          onAdd={addTrack}
+          isRemoval={false}
+        />
 
-        <Playlist 
-        playlistName={playlistName} 
-        playlistTracks={playlistTracks}
-        isRemoval={true}
+        <Playlist
+          playlistName={playlistName}
+          playlistTracks={playlistTracks}
+          isRemoval={true}
         />
       </div>
     </div>

@@ -6,7 +6,7 @@ import '../../style.css';
 import Tracklist from '../Tracklist/Tracklist';
 
 const SearchResults = (props) => {
-    console.log('userSearchResults in SearchResults:', props.userSearchResults);
+    // console.log('userSearchResults in SearchResults:', props.userSearchResults);
 
     return (
         <div className={styles.main}>
@@ -16,8 +16,8 @@ const SearchResults = (props) => {
             </div>
             <div className={styles.tracklist_results}>
                 <Tracklist userSearchResults={props.userSearchResults}
-                isRemoval={props.isRemoval}
-                onAdd={props.onAdd} />
+                    isRemoval={props.isRemoval}
+                    onAdd={props.onAdd} />
             </div>
         </div>
     )

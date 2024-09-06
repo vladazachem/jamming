@@ -7,21 +7,25 @@ import minus from './minus.svg';
 import plus from './plus.svg';
 
 const Track = (props) => {
-    console.log('isRemoval:', props.isRemoval);
+    // console.log('isRemoval:', props.isRemoval);
     const renderAction = () => {
         if (props.isRemoval) {
             return (
                 <button className={styles.btn}>
-                    <img src={minus} alt="Delete"/>  {/* Corrected to minus for removal */}
+                    <img src={minus} alt="Delete" />  
                 </button>
             );
         } else {
             return (
                 <button className={styles.btn}>
-                    <img src={plus} alt="Add"/>  {/* Corrected to plus for adding */}
+                    <img src={plus} alt="Add"  onClick={passTrack} /> 
                 </button>
             );
         }
+    };
+
+    const passTrack = () => {
+        props.onAdd(props.track);
     };
 
 

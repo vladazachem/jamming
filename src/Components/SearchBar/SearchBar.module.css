@@ -28,3 +28,7 @@
     margin: 0px 10px;
     width: 80px;
 }
+
+.S_button:focus {
+    background-color: var(--primary02-color);
+}

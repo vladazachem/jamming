@@ -11,8 +11,8 @@ const Tracklist = (props) => {
     // useEffect(() => {
     //     console.log('props.userSearchResults inside useEffect:', props.userSearchResults);
     // }, [props.userSearchResults]);
-    
-    console.log('isRemoval in Tracklist:', props.isRemoval);
+
+    // console.log('isRemoval in Tracklist:', props.isRemoval);
 
     return (
         <div className={styles.main}>

@@ -18,12 +18,14 @@ const Playlist = (props) => {
                 isRemoval={props.isRemoval}
                  />
             </div>
-            <div className={`inputWrap ${styles.inputWrap}`}>
-                <input className={`input ${styles.input}`} type="text" aria-label="playlistname" placeholder="Add a name..."/>
-            </div>
-            <div className={styles.btn_wrap}>
-                <button className={`S_button`}>Add</button>
-                <button className={`S_button ${styles.S_button}`}>Clear</button>
+            <div className={styles.inputSection}>
+                <div className={`inputWrap ${styles.inputWrap}`}>
+                    <input className={`input ${styles.input}`} type="text" aria-label="playlistname" placeholder="Add a name..." />
+                </div>
+                <div className={styles.btn_wrap}>
+                    <button className={`S_button`}>Add</button>
+                    <button className={`S_button ${styles.S_button}`}>Clear</button>
+                </div>
             </div>
         </div>
     )
