@@ -6,6 +6,10 @@ import '../../style.css';
 import Tracklist from '../Tracklist/Tracklist';
 
 const Playlist = (props) => {
+    const hendleNameChange = ({target}) => {
+        props.onNameChange(target.value)
+    };
+
     return (
         <div className={styles.main}>
             <div className={styles.header}>
@@ -21,7 +25,13 @@ const Playlist = (props) => {
             </div>
             <div className={styles.inputSection}>
                 <div className={`inputWrap ${styles.inputWrap}`}>
-                    <input className={`input ${styles.input}`} type="text" aria-label="playlistname" placeholder="Add a name..." />
+                    <input 
+                    className={`input ${styles.input}`} 
+                    type="text" 
+                    aria-label="playlistname" 
+                    placeholder="Add a name..."
+                    onChange={hendleNameChange}
+                    />
                 </div>
                 <div className={styles.btn_wrap}>
                     <button className={`S_button`}>Add</button>

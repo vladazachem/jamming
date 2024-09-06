@@ -70,7 +70,9 @@ const Home = () => {
   };
   
 
-  
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name);
+  };
 
   // console.log('searchResults:', searchResults); // Check the initial data
 
@@ -91,6 +93,7 @@ const Home = () => {
           playlistTracks={playlistTracks}
           isRemoval={true}
           onRemove={removeTrack}
+          onNameChange={updatePlaylistName}
         />
       </div>
     </div>
