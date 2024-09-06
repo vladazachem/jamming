@@ -11,14 +11,14 @@ const Track = (props) => {
     const renderAction = () => {
         if (props.isRemoval) {
             return (
-                <button className={styles.btn}>
+                <button className={styles.btn} onClick={passTrackRemove}>
                     <img src={minus} alt="Delete" />  
                 </button>
             );
         } else {
             return (
-                <button className={styles.btn}>
-                    <img src={plus} alt="Add"  onClick={passTrack} /> 
+                <button className={styles.btn} onClick={passTrack}>
+                    <img src={plus} alt="Add" /> 
                 </button>
             );
         }
@@ -26,6 +26,10 @@ const Track = (props) => {
 
     const passTrack = () => {
         props.onAdd(props.track);
+    };
+
+    const passTrackRemove = () => {
+        props.onRemove(props.track)
     };
 
 

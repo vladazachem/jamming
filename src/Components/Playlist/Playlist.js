@@ -16,6 +16,7 @@ const Playlist = (props) => {
                 <Tracklist 
                 userSearchResults={props.playlistTracks}
                 isRemoval={props.isRemoval}
+                onRemove={props.onRemove}
                  />
             </div>
             <div className={styles.inputSection}>

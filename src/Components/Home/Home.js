@@ -45,18 +45,6 @@ const Home = () => {
       artist: "Track Playlist Artist 1",
       album: "Track Playlist Album 1",
       id: 1
-    },
-    {
-      name: "Track Playlist Name 2",
-      artist: "Track Playlist Artist 2",
-      album: "Track Playlist Album 2",
-      id: 2
-    },
-    {
-      name: "Track Playlist Name 3",
-      artist: "Track Playlist Artist 3",
-      album: "Track Playlist Album 3",
-      id: 3
     }
   ]);
 
@@ -66,9 +54,23 @@ const Home = () => {
     if (existingTrack) {
       console.log('This track was already added');
     } else {
-      setPlaylistTracks(prevTracks => [...prevTracks, track]);;
+      setPlaylistTracks(prevTracks => [...prevTracks, track]);
+      setSearchResults(prevResults => 
+        prevResults.filter((t) => t.id !== track.id)
+      );
     }
   };
+
+
+  const removeTrack = (track) => {
+    setPlaylistTracks(prevTracks =>
+      prevTracks.filter((t) => t.id !== track.id)
+    );
+    setSearchResults(prevResults => [...prevResults, track]);
+  };
+  
+
+  
 
   // console.log('searchResults:', searchResults); // Check the initial data
 
@@ -80,14 +82,15 @@ const Home = () => {
       <div className={styles.card_container}>
         <SearchResults
           userSearchResults={searchResults}
-          onAdd={addTrack}
           isRemoval={false}
+          onAdd={addTrack}
         />
 
         <Playlist
           playlistName={playlistName}
           playlistTracks={playlistTracks}
           isRemoval={true}
+          onRemove={removeTrack}
         />
       </div>
     </div>
