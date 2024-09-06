@@ -5,7 +5,7 @@ import '../../style.css';
 
 import Tracklist from '../Tracklist/Tracklist';
 
-const Playlist = () => {
+const Playlist = (props) => {
     return (
         <div className={styles.main}>
             <div className={styles.header}>
@@ -13,7 +13,10 @@ const Playlist = () => {
                 <h4>Here, you can create a new playlist.</h4>
             </div>
             <div className={styles.tracklist_playlist}>
-                <Tracklist />
+                <Tracklist 
+                userSearchResults={props.playlistTracks}
+                isRemoval={props.isRemoval}
+                 />
             </div>
             <div className={`inputWrap ${styles.inputWrap}`}>
                 <input className={`input ${styles.input}`} type="text" aria-label="playlistname" placeholder="Add a name..."/>

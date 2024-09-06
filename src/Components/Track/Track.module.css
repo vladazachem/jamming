@@ -1,0 +1,31 @@
+@import url(../../style.css);
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 23px;
+}
+
+.track_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.h3 {
+    font-size: var(--font-size-body01);
+    font-weight: var(--font-weight-regular);
+}
+
+p {
+    font-size: var(--font-size-body02);
+    font-weight: var(--font-weight-regular);
+    color: var(--neutral02-color);
+}
+
+.btn {
+    background-color: var(--secondary03-color);
+    height: 25px;
+    padding: 5px;
+}

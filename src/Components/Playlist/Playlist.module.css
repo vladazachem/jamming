@@ -2,8 +2,8 @@
     border: solid 2px var(--secondary01-color);
     border-radius: 30px;
     width: 35vw;
-    height: 40vh;
-    padding: 40px 50px;
+    height: 41vh;
+    padding: 40px 50px 30px ;
     display: flex;
     flex-direction: column;
 }
@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 h3 {
@@ -29,7 +30,18 @@ h4 {
 .tracklist_playlist {
     display: flex;
     flex-direction: column;
-    height: 270px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+
+.inputWrap {
+    background-color: var(--secondary03-color);
+    margin-top: 20px;
 }
 
 .btn_wrap {

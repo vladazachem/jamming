@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 h3 {
@@ -29,4 +30,10 @@ h4 {
 .tracklist_results {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
