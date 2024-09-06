@@ -74,6 +74,15 @@ const Home = () => {
     setPlaylistName(name);
   };
 
+  const savePlaylist = () => {
+    const trackURIs = playlistTracks.map((t) => t.uri);
+  };
+
+  const clearPlaylist = () => {
+    setPlaylistName("");
+    setPlaylistTracks([]);
+  };
+
   // console.log('searchResults:', searchResults); // Check the initial data
 
 
@@ -94,6 +103,8 @@ const Home = () => {
           isRemoval={true}
           onRemove={removeTrack}
           onNameChange={updatePlaylistName}
+          onSave={savePlaylist}
+          onClear={clearPlaylist}
         />
       </div>
     </div>

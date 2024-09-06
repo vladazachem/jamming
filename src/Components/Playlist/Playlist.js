@@ -30,12 +30,13 @@ const Playlist = (props) => {
                     type="text" 
                     aria-label="playlistname" 
                     placeholder="Add a name..."
+                    value={props.playlistName}
                     onChange={hendleNameChange}
                     />
                 </div>
                 <div className={styles.btn_wrap}>
-                    <button className={`S_button`}>Add</button>
-                    <button className={`S_button ${styles.S_button}`}>Clear</button>
+                    <button className={`S_button`} onClick={props.onSave}>Save</button>
+                    <button className={`S_button ${styles.S_button}`} onClick={props.onClear}>Clear</button>
                 </div>
             </div>
         </div>
