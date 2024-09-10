@@ -17,35 +17,51 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // console.log("Window hash: ", window.location.hash);
-
     const hash = window.location.hash;
     let token = localStorage.getItem("token");
+    let expiryTime = localStorage.getItem("expiry_time");
 
+
+  
     if (!token && hash) {
-      token = hash
-        .substring(1)
-        .split("&")
-        .find((elem) => elem.startsWith("access_token"))
-        .split("=")[1];
-
-      // console.log("Token: ", token);
-
-      localStorage.setItem("token", token);
-      window.location.hash = "";
-      navigate("/home");
-
-      // Delay the navigation to check if navigate is working
-      //   setTimeout(() => {
-      //   console.log("Navigating to /home");
-      //   navigate("/home");
-      // }, 1000); // 3-second delay to see if it's working
+      try {
+        const hashParams = hash
+          .substring(1)
+          .split("&")
+          .reduce((result, param) => {
+            const [key, value] = param.split("=");
+            result[key] = value;
+            return result;
+          }, {});
+  
+        token = hashParams.access_token;
+        const expiresIn = hashParams.expires_in; // Get expiration time from Spotify
+        expiryTime = Date.now() + expiresIn * 1000; // Calculate expiry time
+  
+        localStorage.setItem("token", token);
+        localStorage.setItem("expiry_time", expiryTime);
+  
+        window.location.hash = ""; // Clear hash
+  
+        navigate("/home");
+      } catch (error) {
+        console.error("Error processing the token from URL:", error);
+      }
+    }
+  
+    if (expiryTime && Date.now() > expiryTime) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("expiry_time");
+      alert("Your session has expired. Please log in again.");
     }
   }, [navigate]);
+  
 
   const handleLogin = () => {
-    window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+    const scopes = 'user-top-read';  // Request the necessary scope
+    window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${scopes}`;
   };
+  
 
   return (
     <div className={styles.mainframe}>
