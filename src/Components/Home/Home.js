@@ -8,6 +8,14 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 
+/**
+ * Home component that allows users to search for tracks, create playlists, and manage tracks.
+ * It interacts with Spotify's API for fetching tracks based on search queries.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered Home component.
+ */
+
 const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
@@ -18,15 +26,21 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  // console.log("Token:", token);
+  /**
+   * useEffect hook that fetches Spotify token from localStorage, and uses it to fetch initial tracks
+   * based on a default search query. Also checks for token expiration and navigates to login if expired.
+   */
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken); // Ensure token is updated
-
     if (!storedToken) return;
 
-    // Function to fetch items based on search term
+    /**
+     * Fetches tracks based on the search query from Spotify API.
+     *
+     * @param {string} query - The search term to query the Spotify API.
+     */
     const fetchItems = (query) => {
       fetch(`https://api.spotify.com/v1/search?q=${query}&type=track`, {
         headers: {
@@ -60,6 +74,9 @@ const Home = () => {
     fetchItems("your default search query");
   }, [token]);
 
+  /**
+   * useEffect hook that checks for token expiration and redirects the user to login page if expired.
+   */
   useEffect(() => {
     const expiryTime = localStorage.getItem("expiry_time");
     if (expiryTime && Date.now() > expiryTime) {
@@ -70,7 +87,12 @@ const Home = () => {
     }
   }, [navigate]);
 
-  // Search and filter function
+  /**
+   * Handles search and filtering of tracks based on search term and filter type.
+   *
+   * @param {string} term - The search term to query.
+   * @param {string} filter - The filter to apply ("all", "artist", "title").
+   */
   const search = (term, filter) => {
     setSearchFilter(filter);
 
@@ -98,10 +120,14 @@ const Home = () => {
               if (filter === "all") {
                 return (
                   track.name.toLowerCase().includes(term.toLowerCase()) ||
-                  track.artists[0].name.toLowerCase().includes(term.toLowerCase())
+                  track.artists[0].name
+                    .toLowerCase()
+                    .includes(term.toLowerCase())
                 );
               } else if (filter === "artist") {
-                return track.artists[0].name.toLowerCase().includes(term.toLowerCase());
+                return track.artists[0].name
+                  .toLowerCase()
+                  .includes(term.toLowerCase());
               } else if (filter === "title") {
                 return track.name.toLowerCase().includes(term.toLowerCase());
               }
@@ -122,7 +148,11 @@ const Home = () => {
       .catch((error) => console.error("Error fetching search results:", error));
   };
 
-  // Playlist functions
+  /**
+   * Adds a track to the playlist and removes it from the search results.
+   *
+   * @param {Object} track - The track object to be added.
+   */
   const addTrack = (track) => {
     const existingTrack = playlistTracks.find((t) => t.id === track.id);
 
@@ -136,6 +166,11 @@ const Home = () => {
     }
   };
 
+  /**
+   * Removes a track from the playlist and adds it back to the search results.
+   *
+   * @param {Object} track - The track object to be removed.
+   */
   const removeTrack = (track) => {
     setPlaylistTracks((prevTracks) =>
       prevTracks.filter((t) => t.id !== track.id)
@@ -143,15 +178,37 @@ const Home = () => {
     setSearchResults((prevResults) => [...prevResults, track]);
   };
 
+  /**
+   * Updates the playlist name.
+   *
+   * @param {string} name - The new playlist name.
+   */
   const updatePlaylistName = (name) => {
     setPlaylistName(name);
   };
 
+  /**
+   * Saves the current playlist by sending the playlist name and tracks to the Playlist service.
+   * Resets the playlist state after saving.
+   */
   const savePlaylist = () => {
     const trackURIs = playlistTracks.map((t) => t.uri);
-    console.log("Saved playlist with URIs:", trackURIs);
+    if (!playlistName || trackURIs.length === 0) {
+      alert("Please provide a playlist name and add tracks.");
+      return;
+    }
+
+    Playlist.savePlaylist(playlistName, trackURIs)
+      .then(() => {
+        updatePlaylistName("");
+        setPlaylistTracks([]);
+      })
+      .catch((error) => console.error("Error saving playlist:", error));
   };
 
+  /**
+   * Clears the playlist name and track list.
+   */
   const clearPlaylist = () => {
     setPlaylistName("");
     setPlaylistTracks([]);
