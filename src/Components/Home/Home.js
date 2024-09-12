@@ -102,6 +102,15 @@ const Home = () => {
         Authorization: `Bearer ${token}`,
       },
     })
+
+    .then((response) => {
+      console.log("API Response Status:", response.status);
+      return response.json();
+    })
+    .then((data) => {
+      console.log("API Response Data:", data);
+      // Further processing...
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
