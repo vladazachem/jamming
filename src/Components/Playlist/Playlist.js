@@ -78,6 +78,7 @@ const Playlist = (props) => {
       });
 
       alert("Playlist saved successfully!");
+      props.onClear();
     } catch (error) {
       console.error("Error saving playlist:", error);
     }
