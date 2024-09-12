@@ -1,5 +1,6 @@
 .main {
     padding-inline: 150px;
+    padding-bottom: 100px;
     display: block;
 }
 
@@ -8,4 +9,12 @@
     justify-content: space-between;
     gap: 50px;
     width: 100%;
+}
+
+@media only screen and (max-width: 1300px) {
+    .card_container {
+        flex-wrap: wrap;
+        align-items:center;
+        justify-content: center;
+    }
 }
