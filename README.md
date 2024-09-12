@@ -1,5 +1,7 @@
 # Jamm
 
+⚠️ Warning: Limited Access Due to Spotify Developer Mode
+
 **Jamm** is a web application that allows users to search for music tracks using the Spotify API, create custom playlists, and manage tracks all within an intuitive user interface. This app demonstrates the integration of the Spotify Web API and React Router to handle user authentication, API requests, and dynamic page navigation.
 
 ## Table of Contents
