@@ -74,13 +74,13 @@ To run this project locally:
 - **SearchResults**: Displays search results fetched from the Spotify API.
 - **Playlist**: Allows users to manage their custom playlists (add, remove, save).
 
-##Technologies Used
+## Technologies Used
 
 - **React**: JavaScript library for building user interfaces.
 - **React Router**: For routing and navigation within the app.
 - **Spotify API**: To fetch track data and manage user playlists.
 - **CSS Modules**: For component-specific styling.
 
-##Acknowledgements
+## Acknowledgements
 - Gratitude to Spotify for providing the API that makes this application possible.
 - Gratitude to Codecademy for their educational resources and learning opportunities that helped in mastering the technologies used in this project. 
