@@ -69,7 +69,7 @@ const Home = () => {
         .catch((error) => console.error("Error fetching items:", error));
     };
 
-    fetchItems("your default search query");
+    fetchItems("top hits");
   }, [token]);
 
   /**
