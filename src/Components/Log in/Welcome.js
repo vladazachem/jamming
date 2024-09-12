@@ -8,7 +8,7 @@ import spotify_logo from "./spotify_logo.svg";
 import codecademy_logo from "./codecademy_logo.svg";
 
 const CLIENT_ID = "549b533061924e4c81509ccd9025d8a6";
-const REDIRECT_URI = "http://localhost:3000/";
+const REDIRECT_URI = "https://jamm-codecademy.netlify.app";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
 
