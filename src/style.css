@@ -40,6 +40,7 @@ button {
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
     background-color: var(--primary01-color);
+    color: var(--secondary01-color);
     width: fit-content;
     border-radius: 50px;
     transition: background-color 0.3s ease;
