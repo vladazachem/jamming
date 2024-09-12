@@ -100,6 +100,7 @@ const Home = () => {
     fetch(`https://api.spotify.com/v1/search?q=${term}&type=track`, {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
       },
     })
 

@@ -68,8 +68,8 @@ const Welcome = () => {
   }, [navigate]);
 
   const handleLogin = () => {
-    const scopes = ["user-top-read", "playlist-modify-public", "user-library-read"]; // Request the necessary scope
-    window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${scopes}`;
+    const scopes = ["user-top-read", "playlist-modify-public", "user-library-read", "user-read-private", "user-read-email", "user-read-recently-played"];
+    window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${scopes.join('%20')}`;  
   };
 
   return (
