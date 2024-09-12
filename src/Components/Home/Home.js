@@ -20,7 +20,7 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [searchFilter, setSearchFilter] = useState("all");
+  const [searchFilter, setSearchFilter] = useState("all"); // Filter state kept
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [initialTracks, setInitialTracks] = useState([]);
 
@@ -30,7 +30,6 @@ const Home = () => {
    * useEffect hook that fetches Spotify token from localStorage, and uses it to fetch initial tracks
    * based on a default search query. Also checks for token expiration and navigates to login if expired.
    */
-
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken); // Ensure token is updated
@@ -93,8 +92,8 @@ const Home = () => {
    * @param {string} term - The search term to query.
    * @param {string} filter - The filter to apply ("all", "artist", "title").
    */
-  const search = (term, filter) => {
-    setSearchFilter(filter);
+  const search = (term, filter = "all") => {
+    setSearchFilter(filter); // Update the search filter
 
     if (!term) {
       setSearchResults(initialTracks); // Reset to initial list if term is empty
@@ -115,20 +114,21 @@ const Home = () => {
       })
       .then((data) => {
         if (data.tracks && data.tracks.items) {
+          // Apply filter based on selected searchFilter
           const filteredResults = data.tracks.items
             .filter((track) => {
-              if (filter === "all") {
+              if (searchFilter === "all") {
                 return (
                   track.name.toLowerCase().includes(term.toLowerCase()) ||
                   track.artists[0].name
                     .toLowerCase()
                     .includes(term.toLowerCase())
                 );
-              } else if (filter === "artist") {
+              } else if (searchFilter === "artist") {
                 return track.artists[0].name
                   .toLowerCase()
                   .includes(term.toLowerCase());
-              } else if (filter === "title") {
+              } else if (searchFilter === "title") {
                 return track.name.toLowerCase().includes(term.toLowerCase());
               }
               return false;
