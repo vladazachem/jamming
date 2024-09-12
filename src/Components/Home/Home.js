@@ -20,7 +20,6 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [searchFilter, setSearchFilter] = useState("all"); // Filter state kept
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [initialTracks, setInitialTracks] = useState([]);
 
@@ -93,14 +92,11 @@ const Home = () => {
    * @param {string} filter - The filter to apply ("all", "artist", "title").
    */
   const search = (term, filter = "all") => {
-    setSearchFilter(filter); // Update the search filter
-
     if (!term) {
       setSearchResults(initialTracks); // Reset to initial list if term is empty
       return;
     }
-
-    // Call fetchItems whenever the user searches
+  
     fetch(`https://api.spotify.com/v1/search?q=${term}&type=track`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -114,22 +110,20 @@ const Home = () => {
       })
       .then((data) => {
         if (data.tracks && data.tracks.items) {
-          // Apply filter based on selected searchFilter
+          // Filter tracks based on the filter passed to the function
           const filteredResults = data.tracks.items
             .filter((track) => {
-              if (searchFilter === "all") {
-                return (
-                  track.name.toLowerCase().includes(term.toLowerCase()) ||
-                  track.artists[0].name
-                    .toLowerCase()
-                    .includes(term.toLowerCase())
-                );
-              } else if (searchFilter === "artist") {
-                return track.artists[0].name
-                  .toLowerCase()
-                  .includes(term.toLowerCase());
-              } else if (searchFilter === "title") {
-                return track.name.toLowerCase().includes(term.toLowerCase());
+              const trackName = track.name.toLowerCase();
+              const artistName = track.artists[0].name.toLowerCase();
+              const searchTerm = term.toLowerCase();
+
+              // Apply filtering logic based on the filter argument
+              if (filter === "all") {
+                return trackName.includes(searchTerm) || artistName.includes(searchTerm);
+              } else if (filter === "artist") {
+                return artistName.includes(searchTerm);
+              } else if (filter === "title") {
+                return trackName.includes(searchTerm);
               }
               return false;
             })
